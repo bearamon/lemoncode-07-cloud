@@ -11,14 +11,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          submodules: true
-          fetch-depth: 0
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_GITHUB_KEY }}
-          known_hosts: unnecessary
       - name: Git config
         run: |
           git config --global user.email "bramon@freepik.com"
@@ -28,4 +20,8 @@ jobs:
       - name: Build
         run: npm run build
       - name: Deploy
-        run: npm run deploy -- -r git@github.com:bearm23/lemoncode-07-cloud.git
+        run: |
+          git remote set-url origin https://git:${SSH_PRIVATE_KEY}@github.com/bearm23/lemoncode-07-cloud.git
+          npm run deploy -u "github-actions-bot <support+actions@github.com>"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

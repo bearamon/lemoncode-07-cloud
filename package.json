@@ -14,7 +14,7 @@
     "test": "jest -c ./config/test/jest.js --verbose",
     "test:watch": "npm run test -- --watchAll -i --no-cache",
     "build:dev": "npm run clean && webpack --config ./config/webpack/dev.js",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d build"
   },
   "author": "Lemoncode",
   "license": "MIT",
