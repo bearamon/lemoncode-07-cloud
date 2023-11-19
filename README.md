@@ -20,3 +20,4 @@ Luego en el paso de Deploy he usado esa key:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+Otro paso necesario para que funcione y no de 403 el enlace a Github, es ir a las Settings del repositorio > Actions > General > Workflow permissions > Check Read and write permissions.
