@@ -10,3 +10,4 @@ npm run deploy -- -r git@github.com:bearamon/lemoncode-07-cloud.git
 
 En el repositorio de Github > Settings > Environments, he cambiado la regla para el deploy para que se ejecute cuando se haga una rama release.
 Además, he añadido una Secret Key.
+En la configuración personal > Settings > Developer settings > Personal access tokens, he añadido un nuevo token y el nombre es el que usaré para mi step de Deploy.
