@@ -28,4 +28,4 @@ jobs:
       - name: Build
         run: npm run build
       - name: Deploy
-        run: npm run deploy -- -r git@github.com:bearm23/07-cloud.git
+        run: npm run deploy -- -r git@github.com:bearm23/lemoncode-07-cloud.git
