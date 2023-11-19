@@ -21,7 +21,7 @@ jobs:
         run: npm run build
       - name: Deploy
         run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/bearm23/lemoncode-07-cloud.git
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/bearamon/lemoncode-07-cloud.git
           npm run deploy -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
