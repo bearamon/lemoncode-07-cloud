@@ -16,6 +16,7 @@ jobs:
           mkdir -p ~/.ssh/
           echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa_deploy_bramon_freepik
           sudo chmod 600 ~/.ssh/id_rsa_deploy_bramon_freepik
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
       - name: Git config
         run: |
           git config --global user.email "bramon@freepik.com"
