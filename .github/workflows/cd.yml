@@ -17,9 +17,8 @@ jobs:
       - name: Use SSH key
         run: |
           mkdir -p ~/.ssh/
-          echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa_deploy_bramon_freepik
-          sudo chmod 600 ~/.ssh/id_rsa_deploy_bramon_freepik
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          echo "${{secrets.SSH_GITHUB_KEY}}" > ~/.ssh/id_rsa
+          sudo chmod 600 ~/.ssh/id_rsa
       - name: Git config
         run: |
           git config --global user.email "bramon@freepik.com"
@@ -29,7 +28,4 @@ jobs:
       - name: Build
         run: npm run build
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: main
+        run: npm run deploy -- -r git@github.com:bearm23/07-cloud.git
