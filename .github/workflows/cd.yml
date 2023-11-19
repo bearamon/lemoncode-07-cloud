@@ -3,7 +3,7 @@ name: Continuos Deployment workflow
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   cd:
@@ -14,15 +14,15 @@ jobs:
       - name: Use SSH key
         run: |
           mkdir -p ~/.ssh/
-          echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa_deploy_gmail
-          sudo chmod 600 ~/.ssh/id_rsa_deploy_gmail
+          echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa_deploy_bramon_freepik
+          sudo chmod 600 ~/.ssh/id_rsa_deploy_bramon_freepik
       - name: Git config
         run: |
-          git config --global user.email "ramon.marquez.1b@gmail.com"
+          git config --global user.email "bramon@freepik.com"
           git config --global user.name "Bea Ramon"
       - name: Install
         run: npm ci
       - name: Build
         run: npm run build
       - name: Deploy
-        run: npm run deploy -- -r git@github.com:bearm23/07-cloud.git
+        run: npm run deploy -- -r git@github.com:bearamon/lemoncode-07-cloud.git
